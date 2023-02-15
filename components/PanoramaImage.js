@@ -12,7 +12,7 @@ const ReactPhotoSphereViewer = dynamic(
   }
 )
 
-function PanaromaImage({src}) {
+function PanaromaImage({src, setIsPanoramaReady}) {
   const photoSphereRef = createRef(<ReactPhotoSphereViewer />);
 
   React.useEffect(() => {
@@ -40,6 +40,9 @@ function PanaromaImage({src}) {
                     'fullscreen'
                 ]
             }
+            onReady={() => {
+                setIsPanoramaReady(true);
+            }}
         ></ReactPhotoSphereViewer>
       </div>
     )
