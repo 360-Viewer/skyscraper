@@ -1,0 +1,9 @@
+{
+    "company": "Şirket",
+    "title": "Başlık",
+    "description": "Açıklama",
+    "loading": "Yükleniyor...",
+    "block_a" : "A Blok",
+    "block_b" : "B Blok",
+    "block_c" : "C Blok"
+}
