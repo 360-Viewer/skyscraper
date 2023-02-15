@@ -42,15 +42,15 @@ function Menu() {
 
     
     function aBlockToggled() {
-        router.push("/a-block/l7/1");
+        router.push("/a-block/l2/1");
     }
 
     function bBlockToggled() {
-        router.push("/b-block/l9/1");
+        router.push("/b-block/l2/1");
     }
 
     function cBlockToggled() {
-        router.push("/c-block/l7/1");
+        router.push("/c-block/l2/1");
     }
 
     useEffect(() => {
