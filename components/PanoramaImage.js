@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {createRef, useEffect} from "react";
 import dynamic from 'next/dynamic'
 import { srcLink } from "./Utils";
 
@@ -13,18 +13,19 @@ const ReactPhotoSphereViewer = dynamic(
 )
 
 function PanaromaImage({src}) {
-    // const photoSphereRef = React.useRef(<ReactPhotoSphereViewer />);
-    // useEffect(() => {
-    //     if (photoSphereRef.current) {
-    //         // console.log('hello');
-    //         // console.log(photoSphereRef.current);
-    //         // photoSphereRef.current.toggleAutorotate();
-    //     }
-    // }, [photoSphereRef]);
+  const photoSphereRef = createRef(<ReactPhotoSphereViewer />);
+
+  React.useEffect(() => {
+    if (!photoSphereRef.current)
+      return;
+    console.log("photoSphereRef.current");
+    photoSphereRef.current.toggleAutorotate();
+  }, [photoSphereRef]);
 
     return (
+      <div>
         <ReactPhotoSphereViewer
-            // ref={photoSphereRef}
+            ref={photoSphereRef}
             width={"100%"}
             height={'100vh'}
             src={src}
@@ -40,6 +41,7 @@ function PanaromaImage({src}) {
                 ]
             }
         ></ReactPhotoSphereViewer>
+      </div>
     )
 }
 
