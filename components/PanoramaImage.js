@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import dynamic from 'next/dynamic'
-import TR from '@/translations/tr.json'
 import { srcLink } from "./Utils";
 
 const ReactPhotoSphereViewer = dynamic(
@@ -15,7 +14,6 @@ const ReactPhotoSphereViewer = dynamic(
 
 function PanaromaImage({src}) {
     // const photoSphereRef = React.useRef(<ReactPhotoSphereViewer />);
-    // // const photoSphereRef = React.createRef(<ReactPhotoSphereViewer />);
     // useEffect(() => {
     //     if (photoSphereRef.current) {
     //         // console.log('hello');
@@ -30,7 +28,6 @@ function PanaromaImage({src}) {
             width={"100%"}
             height={'100vh'}
             src={src}
-            // loadingTxt={TR.loading}
             loadingImg={srcLink("/favicon.ico")}  
             defaultZoomLvl={10}
             navbar={
@@ -42,10 +39,8 @@ function PanaromaImage({src}) {
                     'fullscreen'
                 ]
             }
-            
         ></ReactPhotoSphereViewer>
     )
 }
-
 
 export default PanaromaImage;
