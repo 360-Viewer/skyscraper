@@ -35,8 +35,9 @@ function PanaromaImage({src, setIsPanoramaReady}) {
                 [
                     'autorotate',
                     'zoom',
-                    'moveLeft',
-                    'moveRight',
+                    'move',
+                    'download',
+                    'description',
                     'fullscreen'
                 ]
             }
