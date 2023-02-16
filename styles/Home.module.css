@@ -11,14 +11,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  animation: blur 3s normal forwards;
-  opacity: 1; /* make the blur more subtle */
+  animation: blur 2s normal forwards;
   pointer-events: none; /* make the overlay click-through */
   z-index: 100;
 
   /* webkit */
-  -webkit-animation: blur 3s normal forwards;
-  -webkit-opacity: 1;
+  -webkit-animation: blur 2s normal forwards;
   -webkit-pointer-events: none;
   -webkit-z-index: 100;
   
