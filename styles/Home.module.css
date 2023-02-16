@@ -11,12 +11,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* apply the blur */
-  /* backdrop-filter: blur(10px);  */
-  animation: blur 3s alternate infinite;
+  animation: blur 3s normal forwards;
   opacity: 1; /* make the blur more subtle */
   pointer-events: none; /* make the overlay click-through */
   z-index: 100;
+
+  /* webkit */
+  -webkit-animation: blur 3s normal forwards;
+  -webkit-opacity: 1;
+  -webkit-pointer-events: none;
+  -webkit-z-index: 100;
+  
 }
 
 @keyframes blur {
@@ -25,6 +30,15 @@
   }
   to {
     backdrop-filter: blur(0);
+  }
+}
+
+@-webkit-keyframes blur {
+  from {
+    -webkit-backdrop-filter: blur(10px);
+  }
+  to {
+    -webkit-backdrop-filter: blur(0);
   }
 }
 
