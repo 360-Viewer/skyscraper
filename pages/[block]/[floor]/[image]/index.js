@@ -11,13 +11,13 @@ import { srcLink } from '@/components/Utils'
 import { ABlockImages, BBlockImages, CBlockImages } from '@/public/images/_AllImages'
 import { useRouter } from 'next/router'
 
-
 export default function Home() {
     const {dayTime} = useContext(AppContext);
     const router = useRouter();
     const {block, floor, image} = router.query;
     const [blockImages, setBlockImages] = useState(undefined);
     const [query, setQuery] = useState("");
+    const [queryBlur, setQueryBlur] = useState("");
 
     const SetBlockImages = () => {
         switch (block) {
@@ -41,16 +41,21 @@ export default function Home() {
         }
         SetBlockImages();
         setQuery(`${floor}-${image}-${dayTime ? "day" : "night"}`);
-    },[block, floor, image]);
+        setQueryBlur(`/images/${block}-${floor}-${image}-${dayTime ? "day" : "night"}-blur.jpg`);
+    },[block, floor, image, dayTime]);
 
-    useEffect(() => {
-        setQuery(`${floor}-${image}-${dayTime ? "day" : "night"}`);
-    },[dayTime]);
-    
     const GetImage = () => {
+        const [isPanoramaReady, setIsPanoramaReady] = useState(false);
+
         return (
             blockImages ? (
-                <PanoramaImage src={srcLink(blockImages[query])} />
+                <>
+                    {
+                    !isPanoramaReady && 
+                        <div className={styles.blurred} style={{backgroundImage: `url(${srcLink(queryBlur)})`}}></div>
+                    }
+                    <PanoramaImage src={srcLink(blockImages[query])} setIsPanoramaReady={setIsPanoramaReady} />
+                </>
             )
             : (
                 <></>
